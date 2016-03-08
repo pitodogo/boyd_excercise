@@ -4,7 +4,7 @@ function NewtonMethod(A,x,alpha,beta,tolerance)
     MAXITER = 1000
 
     history_val = []
-    
+    val = 0
     for i = 1:MAXITER
     val = Value(A,x)
     ### DIRECTION
