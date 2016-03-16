@@ -1,6 +1,13 @@
 include("parameter_generator.jl")
 iteration = 0;
 
+
+v = zeros(p,1)
+x = rand(n,1);
+b = A*x
+
+
+
 for iteration = 1:1000
 
     val = (b'* v)[1] +sum(exp(-A'*v - 1))
@@ -22,7 +29,10 @@ for iteration = 1:1000
         while( (b'*(v + t * v_nt))[1] + sum( exp(-A'*(v + t * v_nt) - 1 )) > val + t * alpha * (fprime[1]))
             t = beta * t
         end
-    v = v + t * v_nt
+      v = v + t * v_nt
+            
         end
-        println(iteration)
-       
+
+        x = exp(-A'v - 1)
+        println(x)
+

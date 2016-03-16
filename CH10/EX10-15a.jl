@@ -1,5 +1,11 @@
 include("parameter_generator.jl")
 using PyPlot
+x = rand(n,1);
+v = zeros(p,1)
+b = A*x
+
+
+
 ### Calculate X_nt
 val_hist = []
 for iteration = 1:1000
@@ -34,7 +40,7 @@ for iteration = 1:1000
     x = x + x_nt
 end
 
-
+println(x)
 x_axis = 1:length(val_hist)
 plot(x_axis,val_hist-val_hist[end])
 show()

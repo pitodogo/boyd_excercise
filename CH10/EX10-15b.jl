@@ -1,4 +1,9 @@
 include("parameter_generator.jl")
+x = rand(n,1);
+v = zeros(p,1)
+b = A*x
+
+
 
 for iteration = 1:1000
 println(iteration)
@@ -34,3 +39,5 @@ end
         end
         
 end
+
+println(x)    
