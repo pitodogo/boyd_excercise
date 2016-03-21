@@ -33,7 +33,10 @@ end
 
 function Hess(t,s,A,x)
     y = A*x
-    z =    [  sum( (s - y).^-2 +  y./(s*y - 1).^(2) )   (-(s - y).^(-2) + (s*y - 1).^(-2) )' * A]
+
+
+    z =    [  sum( (s - y).^-2 +  y./(s*y - 1).^(2) )   (-(s - y).^(-2) + (s*y - 1).^(-2) )' * A;
+              A'*( -(s - y).^(-2)  - (s*y - 1).^(-2) )  A'*( diagm(vec( (s-y).^(-2) )) + diagm(vec((s./(s*y-1)).^(-2))) )*A + diagm(vec( -(u-x).^(-2) + (x-l).^(-2) ))]
     println(size(z))
 
 
